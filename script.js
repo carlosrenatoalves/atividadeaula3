@@ -79,6 +79,7 @@ function atualizar() {
             entrada2.style.width = '300px';
             entrada2.style.height = '30px';
             entrada2.style.marginLeft = '10px';
+            entrada2.style.marginRight = '10px';
             div2.appendChild(entrada2);
             
 
