@@ -50,7 +50,7 @@ function addElemento() {
 
 }
 
-function removerItens(){
+function removerItens() {
 
     for (let i = 0; i < close.length; i++) {
         close[i].onclick = function () {
@@ -68,23 +68,50 @@ function atualizar() {
 
             div2.innerHTML = "";
 
-            t = document.createTextNode(prompt().toUpperCase());
-            div2.appendChild(t);
+            let entrada = document.createElement("input");
+            entrada.setAttribute("type", 'date');
+            entrada.style.width = '200px';
+            entrada.style.height = '30px';
+            div2.appendChild(entrada);
 
-            let span = document.createElement("SPAN");
-            let txt = document.createTextNode("\u00D7");
-            span.className = "close";
-            span.appendChild(txt);
-            div2.appendChild(span);
 
-            let spaneditar = document.createElement("SPAN");
-            let txt2 = document.createTextNode("editar");
-            spaneditar.className = "editar";
-            spaneditar.appendChild(txt2);
-            div2.appendChild(spaneditar);
+            let entrada2 = document.createElement("input");
+            entrada2.style.width = '300px';
+            entrada2.style.height = '30px';
+            entrada2.style.marginLeft = '10px';
+            div2.appendChild(entrada2);
+            
 
-            removerItens();
-            atualizar();
+            let botao = document.createElement("button");
+            botao.textContent = 'feito';
+            botao.style.width = '100px';
+            botao.style.height = '30px';
+            div2.appendChild(botao);
+
+            botao.onclick = function () {
+
+                
+                let t = document.createTextNode(entrada.value+" "+entrada2.value.toUpperCase());
+                div2.innerHTML = "";
+                div2.appendChild(t);
+
+                let span = document.createElement("SPAN");
+                let txt = document.createTextNode("\u00D7");
+                span.className = "close";
+                span.appendChild(txt);
+                div2.appendChild(span);
+
+                let spaneditar = document.createElement("SPAN");
+                let txt2 = document.createTextNode("editar");
+                spaneditar.className = "editar";
+                spaneditar.appendChild(txt2);
+                div2.appendChild(spaneditar);
+
+                removerItens();
+                atualizar();
+            }
+
+
         }
 
     }
